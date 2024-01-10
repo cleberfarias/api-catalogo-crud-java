@@ -13,7 +13,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 
 @Configuration
 public class SwaggerConfiguration {
-	
+
 	@Bean
 	Docket detalhesApio() {
 		return new Docket(DocumentationType.SWAGGER_2)
@@ -23,16 +23,17 @@ public class SwaggerConfiguration {
 				.build()
 				.apiInfo(this.infosApi());
 	}
-	
+
 	private ApiInfo infosApi() {
 		return new ApiInfoBuilder()
 				.version("1.0")
 				.title("API - Catalogo de produtos")
-				.description("API para cadastro de produtos.\nPara cadastrar um produto é necessário fornecer um nome, descrição, preço e quantidade.\nTambém é possível cadastrar uma categoria, fornecendo apenas o nome e em seguida adicioná-la a um produto.\n\nOs seguintes métodos estão disponíveis: Create, Read, Update, Delete e Patch.")
+				.description(
+						"API para cadastro de produtos.\nPara cadastrar um produto é necessário fornecer um nome, descrição, preço e quantidade.\nTambém é possível cadastrar uma categoria, fornecendo apenas o nome e em seguida adicioná-la a um produto.\n\nOs seguintes métodos estão disponíveis: Create, Read, Update, Delete e Patch.")
 				.termsOfServiceUrl("https://sc.senai.br/")
 				.license("Licenciada para todos")
 				.licenseUrl("https://opensource.org/")
-				.contact(new Contact("Mateus Henrique", "https://github.com/Mateushrb", ""))
+				.contact(new Contact("Cleber Farias", "https://github.com/cleberfarias", ""))
 				.build();
 	}
 }

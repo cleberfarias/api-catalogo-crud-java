@@ -12,37 +12,38 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Produto {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	private String nome;
 	private String descricao;
 	private Double preco;
 	private Long quantidade;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "categoria_id")
 	private Categoria categoria;
-	
+
 	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name = "imagem_id")
 	private Imagem imagem;
-	
+
 	private String idImagem = "";
-	
+
 	public String getIdImagem() {
 		if (this.imagem == null) {
 			return "Sem imagem";
 		} else {
 			this.idImagem = imagem.getId();
-			return idImagem;			
+			return idImagem;
 		}
 	}
-	
-	public Produto() {}
+
+	public Produto() {
+	}
 
 	public Produto(Long id, String nome, String descricao, Double preco, Long quantidade, Categoria categoria) {
 		this.id = id;
@@ -100,15 +101,21 @@ public class Produto {
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
-	
+
 	public Imagem getImagem() {
 		return imagem;
 	}
+
 	public void setImagem(Imagem imagem) {
 		this.imagem = imagem;
 	}
+
 	public void removeImagem() {
 		this.imagem = null;
 	}
-	
+
+	public Long getCodigo() {
+		return null;
+	}
+
 }
